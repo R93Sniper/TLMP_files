@@ -26,6 +26,6 @@ If you wish to contribute to this repository (ie pruning excess tags, organizing
 Credits
 ----------------------------------------------------------------------------------------------
 **InfernoPlus** - Original Maps </br>
-**MosesOfEgypt** - MEK. MEK was used for unobfuscating the original maps so they could be used with MCC, this effort could not be done without it.</br>
-**Kavawuvi** - Invader. Invader was used to help organize the tags and cull excess references</br>
+**MosesOfEgypt** - MEK was used for unobfuscating the original maps so they could be used with MCC, this effort could not be done without it.</br>
+**Kavawuvi** - Invader was used to help organize the tags and cull excess references</br>
 **R93_Sniper** - Porting maps to MCC and making the tags available
