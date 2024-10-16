@@ -1,0 +1,191 @@
+#VRML V1.0 ascii
+
+Separator
+{
+	Coordinate3 { point[-4615.143066 121229.632813 -7631.552246, -4614.777344 121224.718750 -7585.680664, -4606.830078 121118.164063 -6588.971191, -5024.326660 121090.687500 -6580.020508, -5475.028809 121061.773438 -6577.246094, -5475.116699 121062.945313 -6588.225098] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[1.000000 1.000000 0.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,3,4,5,-1] }
+}
+Separator
+{
+	Coordinate3 { point[22429.779297 131683.500000 -5759.160156, 28122.132813 131480.796875 -5752.259766, 21477.720703 129835.500000 -5882.180176] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[28286.429688 129134.789063 -5735.819824, 22677.890625 128140.601563 -5734.330078, 21477.720703 129835.500000 -5882.180176] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[31599.232422 134780.000000 -4716.180176, 24954.779297 133135.296875 -4846.109863, 25908.371094 134982.906250 -4723.081055] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[25379.689453 127067.796875 -4803.588867, 32188.400391 126367.101563 -4657.228027, 26581.347656 125373.101563 -4655.738770] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[24954.779297 133135.296875 -4846.109863, 31763.490234 132434.593750 -4699.741211, 26156.439453 131440.593750 -4698.259766] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[32024.148438 128712.500000 -4673.660156, 25379.689453 127067.796875 -4803.588867, 26333.289063 128915.296875 -4680.569824] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[31879.339844 133621.203125 -4707.958984, 31939.208984 132766.296875 -4701.969727, 24954.779297 133135.296875 -4846.109863] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[32304.248047 127553.703125 -4665.438965, 32364.121094 126698.796875 -4659.449219, 25379.689453 127067.796875 -4803.588867] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[21477.720703 129835.500000 -5882.180176, 28342.402344 131176.296875 -5750.028809, 28402.281250 130321.398438 -5744.039063] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[32244.378906 128408.593750 -4671.429199, 32304.248047 127553.703125 -4665.438965, 25379.689453 127067.796875 -4803.588867] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[31819.470703 134476.093750 -4713.950195, 31879.339844 133621.203125 -4707.958984, 24954.779297 133135.296875 -4846.109863] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[28462.109375 129466.992188 -5738.048340, 21477.720703 129835.500000 -5882.180176, 28402.281250 130321.398438 -5744.039063] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[21477.720703 129835.500000 -5882.180176, 28122.132813 131480.796875 -5752.259766, 28342.402344 131176.296875 -5750.028809] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[28286.429688 129134.789063 -5735.819824, 21477.720703 129835.500000 -5882.180176, 28462.109375 129466.992188 -5738.048340] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[24954.779297 133135.296875 -4846.109863, 31939.208984 132766.296875 -4701.969727, 31763.490234 132434.593750 -4699.741211] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[25379.689453 127067.796875 -4803.588867, 32364.121094 126698.796875 -4659.449219, 32188.400391 126367.101563 -4657.228027] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[31819.470703 134476.093750 -4713.950195, 24954.779297 133135.296875 -4846.109863, 31599.232422 134780.000000 -4716.180176] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[32244.378906 128408.593750 -4671.429199, 25379.689453 127067.796875 -4803.588867, 32024.148438 128712.500000 -4673.660156] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[25916.357422 134868.796875 -5779.669922, 25908.371094 134982.906250 -4723.081055, 24954.779297 133135.296875 -4846.109863] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[26581.347656 125373.101563 -4655.738770, 26574.398438 125472.406250 -5713.818848, 25379.689453 127067.796875 -4803.588867] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[26156.439453 131440.593750 -4698.259766, 26149.482422 131539.906250 -5756.339844, 24954.779297 133135.296875 -4846.109863] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[26341.279297 128801.195313 -5737.147949, 26333.289063 128915.296875 -4680.569824, 25379.689453 127067.796875 -4803.588867] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[28021.580078 131741.906250 -5877.830078, 26149.482422 131539.906250 -5756.339844, 26156.439453 131440.593750 -4698.259766] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[27798.437500 134928.000000 -5900.161133, 25908.371094 134982.906250 -4723.081055, 25916.357422 134868.796875 -5779.669922] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[28446.490234 125674.390625 -5835.318848, 26574.398438 125472.406250 -5713.818848, 26581.347656 125373.101563 -4655.738770] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
+Separator
+{
+	Coordinate3 { point[28223.359375 128860.500000 -5857.646973, 26333.289063 128915.296875 -4680.569824, 26341.279297 128801.195313 -5737.147949] }
+	MaterialBinding { value PER_FACE }
+	Material { diffuseColor[0.000000 1.000000 1.000000] transparency[0.000000] }
+	IndexedFaceSet { coordIndex[0,1,2,-1] }
+}
