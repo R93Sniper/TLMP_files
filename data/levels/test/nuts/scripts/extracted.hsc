@@ -17,9 +17,8 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1)) ;; co-op ""fix"" lol
             (set cheat_deathless_player 0)
         )
     )
@@ -28,9 +27,8 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1))
             (set cheat_omnipotent 0)
         )
     )
@@ -39,9 +37,8 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1))
             (set cheat_medusa 0)
         )
     )
@@ -50,9 +47,8 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1))
             (set cheat_super_jump 0)
         )
     )
@@ -61,9 +57,8 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1))
             (set cheat_infinite_ammo 0)
         )
     )
@@ -72,9 +67,8 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1))
             (set cheat_infinite_ammo 0)
         )
     )
@@ -83,9 +77,8 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1))
             (set cheat_bump_possession 0)
         )
     )
@@ -94,16 +87,15 @@
         (begin
             (sound_impulse_start levels\test\nuts\sounds\no none 1.000000)
             (sleep 90)
-            (unit_kill
-                (unit (list_get (players) 0))
-            )
+            	(unit_kill (player0))
+            	(unit_kill (player1))
             (set cheat_jetpack 0)
         )
     )
 )
 
-
-(script startup "smear the queer"
+;; this script name had some naughty words in it so i renamed it :)
+(script startup "main"
     (cinematic_set_title welcome)
     (sleep 120)
     (object_create control_round_1)
@@ -229,29 +221,31 @@
     (camera_control 1)
     (camera_set squash_camera 0)
     (object_teleport
-        (list_get (players) 0)
+        (player0)
         squash_flag
+    )
+    (object_teleport
+        (player1)
+        squash_flag_c
     )
     (sleep 300)
     (camera_control 0)
     (effect_new "vehicles\fighterbomber\nuke\huge explosion" kaboom)
     (sleep 10)
-    (unit_kill
-        (unit (list_get (players) 0))
-    )
+	(unit_kill (player0))
+	(unit_kill (player1)) ;; coop """bugfix"""
+
+	(sleep 150)
+	(game_revert) ;; unwinnable map, aren't i a stinker!
 )
 
-
-(script continuous "ooo you died loloolololo"
-    (if
-        (<
-            (unit_get_health
-                (unit (list_get (players) 0))
-            )
-            0.000000
-        )
-        (sound_impulse_start levels\test\nuts\sounds\fuck none 1.000000)
+;; this was broken in original. fixed
+(script startup "ooo you died loloolololo"
+    (sleep_until
+        (and (< (unit_get_health (player0)) 0.000000) (< (unit_get_health (player1)) 0.000000))
+        1
     )
+	(sound_impulse_start levels\test\nuts\sounds\fuck none 1.000000)
 )
 
 ;; new script to restore the infraction cut content... thing?
