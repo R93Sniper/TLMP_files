@@ -40,3 +40,27 @@
 	
 	(object_teleport veh6 debug_veh6)
 )
+
+(script startup setup_movers
+	(object_create mov0)
+	(object_create mov1)
+	(object_create mov2)
+	(object_create mov3)
+
+	(ai_place test)
+
+	(vehicle_load_magic mov0 "g-driver" (ai_actors test/mov0))
+	(vehicle_load_magic mov1 "p-pilot" (ai_actors test/mov1))
+	(vehicle_load_magic mov2 "w-driver" (ai_actors test/mov2))
+	(vehicle_load_magic mov3 "g-driver" (ai_actors test/mov3))
+)
+
+(script continuous reset_movers
+	(print "guh")
+
+	(sleep 600)
+	(object_teleport mov0 mov0)
+	(object_teleport mov1 mov1)
+	(object_teleport mov2 mov2)
+	(object_teleport mov3 mov3)
+)
