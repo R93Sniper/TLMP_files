@@ -1,0 +1,26 @@
+(script startup "teleporter scale"
+    (object_set_scale red_teleporter_1 0.800000 1)
+    (object_set_scale red_teleporter_2 0.750000 1)
+    (object_set_scale blue_teleporter_1 0.800000 1)
+    (object_set_scale blue_teleporter_2 0.750000 1)
+)
+
+
+(script startup "shield doors"
+    (object_set_scale red_shield_door_1 1.225000 1)
+    (object_set_scale red_shield_door_2 1.225000 1)
+    (object_set_scale red_shield_door_3 1.350000 1)
+    (object_set_scale red_shield_door_4 1.350000 1)
+    (object_set_scale blue_shield_door_1 1.225000 1)
+    (object_set_scale blue_shield_door_2 1.225000 1)
+    (object_set_scale blue_shield_door_3 1.350000 1)
+    (object_set_scale blue_shield_door_4 1.350000 1)
+    (object_set_collideable red_shield_door_1 0)
+    (object_set_collideable red_shield_door_2 0)
+    (object_set_collideable red_shield_door_3 0)
+    (object_set_collideable red_shield_door_4 0)
+    (object_set_collideable blue_shield_door_1 0)
+    (object_set_collideable blue_shield_door_2 0)
+    (object_set_collideable blue_shield_door_3 0)
+    (object_set_collideable blue_shield_door_4 0)
+)

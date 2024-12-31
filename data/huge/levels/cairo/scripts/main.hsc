@@ -372,6 +372,9 @@
 	(vehicle_cargo_update blue_pelican_0)
 	(vehicle_cargo_update blue_pelican_1)
 	(vehicle_cargo_update blue_pelican_2)
+
+	;; Backpack Weapons Update
+	(backpack_main)
 )
 
 (global vehicle var_kickout_vehicle none)

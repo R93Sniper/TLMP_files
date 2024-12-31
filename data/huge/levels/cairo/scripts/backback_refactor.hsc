@@ -74,9 +74,9 @@
 )
 
 ;; (global object_list var_players (player0)) ;; cairo already has a variable by this name but its safe to share it so we are fine
-(script continuous backpack_main
+(script static void backpack_main
 	;; memory saves
-	(set var_players (players))
+	;; (set var_players (players)) already done by main...
 
 	;; update all 16 players
 	(backpack_update 0)
@@ -97,42 +97,43 @@
 	(backpack_update 15)
 )
 
-;; (global unit update_player none) ;; cairo already has a variable by this name but its safe to share it so we are fine
+ (global unit update_player_backpack none)
 (global boolean has_weapon_update false)
 (script static void (backpack_update (short INDEX))
 	;; temp vars
-	(set update_player (unit (list_get var_players INDEX)))
+	(set update_player_backpack (unit (list_get var_players INDEX)))
 	(set has_weapon_update false)
 
-	;; if player dead or does not exist, set backpack permutation and break from this update
-	(if (= update_player none) (begin
-		;; only if the stored reference is actually *something*
-		(if (!= (get_player_ref INDEX) none) (object_set_permutation (get_player_ref INDEX) backpack __nothing))
-	)
+	;; Check if a player reference is deaded
+	(if (!= (get_player_ref INDEX) none) (begin                                             ;; exists?
+		(if (= (unit_get_health (get_player_ref INDEX)) 0) (begin                       ;; health is 0 - aka - being deaded
+			(object_set_permutation (get_player_ref INDEX) backpack __nothing)
+			(set_player_ref INDEX none)
+		))
+	))
 
-	;; else, update stored reference and continue
-	(begin
-		(set_player_ref INDEX update_player)
+	;; if player exists
+	(if (!= update_player_backpack none) (begin
+		(set_player_ref INDEX update_player_backpack)
 	
-
 		;; update all 12 weapons
-		(backpack_update_weapon update_player 0)
-		(backpack_update_weapon update_player 1)
-		(backpack_update_weapon update_player 2)
-		(backpack_update_weapon update_player 3)
-		(backpack_update_weapon update_player 4)
-		(backpack_update_weapon update_player 5)
-		(backpack_update_weapon update_player 6)
-		(backpack_update_weapon update_player 7)
-		(backpack_update_weapon update_player 8)
-		(backpack_update_weapon update_player 9)
-		(backpack_update_weapon update_player 10)
-		(backpack_update_weapon update_player 11)
-		(backpack_update_weapon update_player 12)
+		(backpack_update_weapon update_player_backpack 0)
+		(backpack_update_weapon update_player_backpack 1)
+		(backpack_update_weapon update_player_backpack 2)
+		(backpack_update_weapon update_player_backpack 3)
+		(backpack_update_weapon update_player_backpack 4)
+		(backpack_update_weapon update_player_backpack 5)
+		(backpack_update_weapon update_player_backpack 6)
+		(backpack_update_weapon update_player_backpack 7)
+		(backpack_update_weapon update_player_backpack 8)
+		(backpack_update_weapon update_player_backpack 9)
+		(backpack_update_weapon update_player_backpack 10)
+		(backpack_update_weapon update_player_backpack 11)
+		(backpack_update_weapon update_player_backpack 12)
 
 		;; if the script can't figure out what weapon you have it just defaults to nothing on your back
 		(if (not has_weapon_update)
-			(object_set_permutation update_player backpack __nothing)
+			(object_set_permutation update_player_backpack backpack __nothing)
 		)
 	))
 )

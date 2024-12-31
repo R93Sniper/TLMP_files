@@ -64,3 +64,47 @@
 	(object_teleport mov2 mov2)
 	(object_teleport mov3 mov3)
 )
+
+(global vehicle current_rec none)
+(global cutscene_recording rec_type primary)
+(global boolean rec_go false)
+
+(script static void (rec_set (vehicle VEHICLE) (cutscene_recording RECORDING) (string SEAT))
+	(object_create rec0)
+
+	(sleep 1)
+	(set current_rec VEHICLE)
+	(set rec_type RECORDING)
+
+	(sleep 1)
+	(unit_enter_vehicle rec0 VEHICLE SEAT)
+
+	(sleep 1)
+	(set rec_go true)
+)
+
+(script continuous currect_rec_update
+	(sleep_until rec_go 1)
+	(object_teleport current_rec rec_flag)
+	(sleep 1)
+)
+
+(script continuous currect_rec_update_guh
+	(sleep_until rec_go 1)
+	(recording_kill rec0)
+	(sleep 1)
+	(recording_play rec0 rec_type)
+	(sleep 700)
+)
+
+(script startup rec_startup
+	(rec_set r_kestrel primary "g-driver")
+)
+
+(script static void longsword
+	(unit_enter_vehicle (player0) veh17 "w-driver")
+)
+
+(script static void pelican
+	(unit_enter_vehicle (player0) veh16 "p-pilot")
+)
