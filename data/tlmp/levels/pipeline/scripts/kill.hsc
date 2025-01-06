@@ -1,3 +1,5 @@
+;; this code sucks and should be refactored lol
+
 (script continuous minefield
     (if
         (=

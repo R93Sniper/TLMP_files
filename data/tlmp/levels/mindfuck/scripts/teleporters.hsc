@@ -1,6 +1,3 @@
-(global cutscene_flag return_flag red_teleport_v_flag)
-(global boolean return_bool false)
-
 ;; GUH!
 (global short var_modulo 0)
 (script static short (modulo (short a) (short b))
@@ -71,11 +68,7 @@
 
 (global short i 0)
 (global unit update_player none)
-(global object_list var_players (player0))
-(script continuous vehicle_update
-	;; memory saves
-	(set var_players (players))
-
+(script static void update_teleporters
 	;; loop value
 	(set i (bitwise_and (+ i 1) 15))
 

@@ -1,3 +1,5 @@
+;; ripped jank code. should be refactored!
+
 (global short plyrnum 0)
 
 (script continuous client_sync_sdoor

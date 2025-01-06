@@ -1,1 +1,0 @@
-;Sorry, no more scripts in stock

@@ -1,5 +1,4 @@
 ;; fake array. contains all the weapon tags that can be backpack'd and gives them a short id
-(global object_definition return_object_definition none)
 (script static object_definition (get_weapon (short INDEX))
 	(if (= INDEX 0) (set return_object_definition "weapons\ball\ball"))
 	(if (= INDEX 1) (set return_object_definition "weapons\flag\flag"))
@@ -18,7 +17,6 @@
 
 ;; fake array. contains strings for permutations. the short value (i) must correspond to the above array.
 ;; EX: 2 is the flamethrower tag above, and here 2 is the string name for the permutation of the flamethrower
-(global string return_string none)
 (script static string (get_permutation (short INDEX))
 	(if (= INDEX 0) (set return_string "__nothing"))
 	(if (= INDEX 1) (set return_string "__nothing"))
@@ -41,7 +39,6 @@
 (global unit ref_player4 none) (global unit ref_player5 none) (global unit ref_player6 none) (global unit ref_player7 none)
 (global unit ref_player8 none) (global unit ref_player9 none) (global unit ref_player10 none) (global unit ref_player11 none)
 (global unit ref_player12 none) (global unit ref_player13 none) (global unit ref_player14 none) (global unit ref_player15 none)
-(global unit return_unit none)
 (script static unit (get_player_ref (short INDEX))
 	(if (= INDEX 0) (set return_unit ref_player0))
 	(if (= INDEX 1) (set return_unit ref_player1))
@@ -81,11 +78,8 @@
 	(if (= INDEX 15) (set ref_player15 PLAYER))
 )
 
-(global object_list var_players_backpack (player0))
-(script continuous backpack_main
-	;; memory saves
-	(set var_players_backpack (players))
 
+(script static void update_backpacks
 	;; update all 16 players
 	(backpack_update 0)
 	(backpack_update 1)
@@ -109,7 +103,7 @@
 (global boolean has_weapon_update false)
 (script static void (backpack_update (short INDEX))
 	;; temp vars
-	(set update_player_backpack (unit (list_get var_players_backpack INDEX)))
+	(set update_player_backpack (unit (list_get var_players INDEX)))
 	(set has_weapon_update false)
 
 	;; Check if a player reference is deaded
