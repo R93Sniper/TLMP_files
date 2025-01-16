@@ -1,5 +1,5 @@
 (global short i 0)
-(script continuous kill_update
+(script static void update_kill
 	;; loop value
 	(set i (bitwise_and (+ i 1) 15))
 

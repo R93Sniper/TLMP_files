@@ -14,5 +14,6 @@
 	;; do the things!
 	(update_backpacks)
 	(update_grenades)
-
+	(update_kill)
+	(update_vehicles)
 )
