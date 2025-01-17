@@ -32,10 +32,6 @@
     (set plyrnum (+ plyrnum 1))
 )
 
-(script startup minichief
-    (object_set_scale "tiny_cheif" 0.5 1)
-)
-
 (script continuous reset_plyrnum
     (if (= (> plyrnum 15) true)
         (set plyrnum 0)

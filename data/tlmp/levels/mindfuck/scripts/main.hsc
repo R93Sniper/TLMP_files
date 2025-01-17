@@ -16,5 +16,4 @@
 	(update_teleporters)
 	(update_backpacks)
 	(update_grenades)
-
 )

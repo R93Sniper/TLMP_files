@@ -1,10 +1,20 @@
-(global short secret_timer 0)
+(global boolean secret_done false)
 (script static void update_secret
-	(if (not (= secret_timer -1)) (begin
-	(if (volume_test_objects secret_trigger_0 var_players) (begin
-		(if (game_is_authoritative) (object_create secret_warthog))
-		(sound_impulse_start "sound\dialog\multiplayer1\warthog" none 1)
-		(set secret_timer -1)
+	(if (and (game_is_authoritative) (not secret_done)) (begin
+		(if (and
+		  (>= (device_get_position secret_0) 1)
+		  (>= (device_get_position secret_1) 1)
+		  (>= (device_get_position secret_2) 1)
+		  (>= (device_get_position secret_3) 1)
+		) (begin
+			(object_create secret_warthog)
+			(set secret_done true)
+		))
 	))
-	))
+)
+
+(script startup secret_thanos
+	(object_create secret_thanos)
+	(object_set_permutation secret_thanos default thanos0)
+	(object_set_scale secret_thanos 0.25 1)
 )
