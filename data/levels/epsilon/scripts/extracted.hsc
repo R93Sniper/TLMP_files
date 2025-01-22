@@ -72,14 +72,14 @@
 
 (script continuous "a10b to a10a"
     (if
-        (=
+        (and (!= (structure_bsp_index) 0) (=
             (volume_test_objects
                 "a10b to a10a"
                 (players)
             )
             1
-        ) (begin
-		(volume_teleport_players_not_inside "a10b to a10a" "a10b to a10a flag")
+        )) (begin
+		(volume_teleport_players_not_inside "a10b to a10a" "a10a X a10b flag")
         	(switch_bsp 0)
     ))
 )
@@ -87,14 +87,14 @@
 
 (script continuous "a10a to a10b"
     (if
-        (=
+        (and (!= (structure_bsp_index) 1) (=
             (volume_test_objects
                 "a10a to a10b"
                 (players)
             )
             1
-        ) (begin
-		(volume_teleport_players_not_inside "a10a to a10b" "a10a to a10b flag")
+        )) (begin
+		(volume_teleport_players_not_inside "a10a to a10b" "a10a X a10b flag")
         	(switch_bsp 1)
     ))
 )
@@ -102,90 +102,90 @@
 
 (script continuous "a10c to a10b"
     (if
-        (=
+        (and (!= (structure_bsp_index) 1) (=
             (volume_test_objects
                 "a10c to a10b"
                 (players)
             )
             1
-        ) (begin
+        )) (begin
         	(switch_bsp 1)
-		(volume_teleport_players_not_inside "a10c to a10b" "a10c to a10b flag")
+		(volume_teleport_players_not_inside "a10c to a10b" "a10b X a10c flag")
     ))
 )
 
 
 (script continuous "a10b to a10c"
     (if
-        (=
+        (and (!= (structure_bsp_index) 2) (=
             (volume_test_objects
                 "a10b to a10c"
                 (players)
             )
             1
-        ) (begin
+        )) (begin
         	(begin (switch_bsp 2) (game_save))
-		(volume_teleport_players_not_inside "a10b to a10c" "a10b to a10c flag")
+		(volume_teleport_players_not_inside "a10b to a10c" "a10b X a10c flag")
     ))
 )
 
 
 (script continuous "a10d to a10c"
     (if
-        (=
+        (and (!= (structure_bsp_index) 2) (=
             (volume_test_objects
                 "a10d to a10c"
                 (players)
             )
             1
-        ) (begin
+        )) (begin
         	(switch_bsp 2)
-		(volume_teleport_players_not_inside "a10d to a10c" "a10d to a10c flag")
+		(volume_teleport_players_not_inside "a10d to a10c" "a10c X a10d flag")
     ))
 )
 
 
 (script continuous "a10c to a10d"
     (if
-        (=
+        (and (!= (structure_bsp_index) 3) (=
             (volume_test_objects
                 "a10c to a10d"
                 (players)
             )
             1
-        ) (begin
+        )) (begin
         	(switch_bsp 3)
-		(volume_teleport_players_not_inside "a10c to a10d" "a10c to a10d flag")
+		(volume_teleport_players_not_inside "a10c to a10d" "a10c X a10d flag")
     ))
 )
 
 
 (script continuous "a10d to a10e"
     (if
-        (=
+        (and (!= (structure_bsp_index) 4) (=
             (volume_test_objects
                 "a10d to a10e"
                 (players)
             )
             1
-        ) (begin
+        )) (begin
         	(switch_bsp 4)
-		(volume_teleport_players_not_inside "a10d to a10e" "a10d to a10e flag")
+		(volume_teleport_players_not_inside "a10d to a10e" "a10d X a10e flag")
     ))
 )
 
 
 (script continuous "a10e to a10d"
     (if
-        (=
+        (and (!= (structure_bsp_index) 3) (=
             (volume_test_objects
                 "a10e to a10d"
                 (players)
             )
             1
-        ) (begin
+        )) (begin
         	(switch_bsp 3)
-		(volume_teleport_players_not_inside "a10e to a10d" "a10e to a10d flag")
+		(volume_teleport_players_not_inside "a10e to a10d" "a10d X a10e flag")
     ))
 )
 
@@ -812,15 +812,15 @@
     (set random_song_chance (random_range 0 3))
     (if
         (= random_song_chance 0)
-        (sound_looping_start levels\epsilon\sound\music\closure none 1.000000)
+        (sound_looping_start levels\epsilon\sound\music\closure none 1)
     )
     (if
         (= random_song_chance 1)
-        (sound_looping_start levels\epsilon\sound\music\song2 none 1.000000)
+        (sound_looping_start levels\epsilon\sound\music\song2 none 1)
     )
     (if
         (= random_song_chance 2)
-        (sound_looping_start levels\epsilon\sound\music\song3 none 1.000000)
+        (sound_looping_start levels\epsilon\sound\music\song3 none 1)
     )
     (camera_control 1)
     (camera_set c_credits_0 100)
@@ -1038,7 +1038,7 @@
     )
 )
 
-
+;; fixed for co-op
 (script startup blast_door_1+2_close
     (sleep_until
         (volume_test_objects
@@ -1046,11 +1046,17 @@
             (players)
         ) 5
     )
+    (device_set_position containment_1_door_2 0.000000)
+
+    (sleep_until
+        (volume_test_objects_all
+            blast_door_1_close
+            (players)
+        ) 5
+    )
     (ai_magically_see_players x_hall_a)
     (object_create collision)
     (device_set_position x10_25 0.000000)
-    (sleep 125)
-    (device_set_position containment_1_door_2 0.000000)
 )
 
 
@@ -1301,9 +1307,9 @@
         )
         (begin
             (object_destroy powerup_3_emit)
-            (game_speed 0.500000)
+            (set game_speed_value 0.500000)
             (sleep 450)
-            (game_speed 1.000000)
+            (set game_speed_value 1.000000)
             (set powerup_3_trigger 0)
         )
     )
