@@ -336,6 +336,7 @@
         (list_get (players) 1)
         cut_p_teleC
     )
+    (object_create radio_dummy)
     (object_create a_brad)
     (object_create pod_3)
     (unit_enter_vehicle a_brad pod_3 pchair-driver)
@@ -343,11 +344,11 @@
     (camera_set c_bridge_camera_2 408)
     (sound_impulse_predict "levels\epsilon\sound\dialouge\crewmen technician\opening line 4" 1)
     (sleep 5)
-    (sound_impulse_start "levels\epsilon\sound\dialouge\crewmen technician\opening line 4" a_brad 1.000000)
+    (sound_impulse_start "levels\epsilon\sound\dialouge\crewmen technician\opening line 4" radio_dummy 1.000000)
     (sleep 99)
     (sound_impulse_start "levels\epsilon\sound\dialouge\bridge control\opening line 5" a_brad 1.000000)
     (sleep 72)
-    (sound_impulse_start "levels\epsilon\sound\dialouge\crewmen technician\opening line 6" a_brad 1.000000)
+    (sound_impulse_start "levels\epsilon\sound\dialouge\crewmen technician\opening line 6" radio_dummy 1.000000)
     (sleep 144)
     (sound_impulse_start "levels\epsilon\sound\dialouge\bridge control\opening line 7" a_brad 1.000000)
     (sleep 93)
@@ -360,6 +361,7 @@
         (list_get (players) 1)
         pre_startC
     )
+    (object_create radio_dummy)
     (object_destroy a_jerry)
     (object_destroy epsilon_chip)
     (object_create d_jerry)
@@ -826,6 +828,19 @@
     (camera_set c_credits_0 100)
     (sleep 60)
     (sleep 60)
+
+	;; SOME FIXES
+	(object_destroy final_delete_00)
+	(object_destroy lifesmolder_1)
+	(object_destroy lifesmolder_2)
+	(object_destroy lifesmolder_3)
+	(object_destroy lifesmolder_4)
+	(object_destroy lifesmolder_5)
+	(object_destroy lifesmolder_6)
+	(object_destroy lifeboat_reentry)
+	(ai_erase crash_party_veh)
+	(object_destroy crash_hog)
+
     (fade_in 0.000000 0.000000 0.000000 30)
     (sleep 30)
     (camera_set c_credits_1 120)
@@ -1285,8 +1300,10 @@
     (if
         (= random_powerup_chance 4)
         (begin
-            (set powerup_4_trigger 1)
+            ;;(set powerup_4_trigger 1)
+		;; changed to a gold pistol with instakill bullets because omni doesnt work in mcc
             (sound_impulse_start levels\epsilon\sound\demi\ff_instakill none 1.000000)
+	    (object_create_anew gold_pistol)
         )
     )
 )
@@ -1311,30 +1328,6 @@
             (sleep 450)
             (set game_speed_value 1.000000)
             (set powerup_3_trigger 0)
-        )
-    )
-)
-
-
-(script continuous "instakill trigger"
-    (if
-        (= powerup_4_trigger 1)
-        (object_create powerup_4_emit)
-    )
-    (if
-        (and
-            (= powerup_4_trigger 1)
-            (volume_test_objects
-                powerup_4_zone
-                (players)
-            )
-        )
-        (begin
-            (object_destroy powerup_4_emit)
-            (set cheat_omnipotent 1)
-            (sleep 450)
-            (set cheat_omnipotent 0)
-            (set powerup_4_trigger 0)
         )
     )
 )
@@ -1365,25 +1358,25 @@
                 (< spawn_loop_count (* wave_count 1.000000))
                 (begin
                     (if
-                        (< wave_count 13)
+                        (< wave_count 8)
                         (begin
                             (ai_place wave_defense_dif/df1_rand_spawn)
                             (ai_command_list_advance wave_defense_dif)
                             (set spawn_loop_count (+ spawn_loop_count 1.000000))
-                            (set random_spawn_time (random_range 15 60))
+                            (set random_spawn_time (random_range 5 30))
                             (sleep random_spawn_time)
                         )
                     )
                     (if
                         (and
                             (< wave_count 25)
-                            (>= wave_count 13)
+                            (>= wave_count 8)
                         )
                         (begin
                             (ai_place wave_defense_dif/df2_rand_spawn)
                             (ai_command_list_advance wave_defense_dif)
-                            (set spawn_loop_count (+ spawn_loop_count 3.000000))
-                            (set random_spawn_time (random_range 45 75))
+                            (set spawn_loop_count (+ spawn_loop_count 2.25))
+                            (set random_spawn_time (random_range 35 55))
                             (sleep random_spawn_time)
                         )
                     )
@@ -1392,7 +1385,7 @@
                         (begin
                             (ai_place wave_defense_dif/df3_rand_spawn)
                             (ai_command_list_advance wave_defense_dif)
-                            (set spawn_loop_count (+ spawn_loop_count 3.750000))
+                            (set spawn_loop_count (+ spawn_loop_count 3.75))
                             (set random_spawn_time (random_range 60 100))
                             (sleep random_spawn_time)
                         )
