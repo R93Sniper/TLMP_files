@@ -95,6 +95,7 @@
 )
 
 ;; this script name had some naughty words in it so i renamed it :)
+(global boolean game_started false)
 (script startup "main"
     (cinematic_set_title welcome)
     (sleep 120)
@@ -103,6 +104,10 @@
     (sleep_until
         (= (device_get_position control_round_1) 1.000000)
     )
+	(object_destroy_containing "top_equip_")  ;; optimization!
+	(object_destroy_containing "top_wep_")    ;; optimization!
+	(object_destroy_containing "top_scen_")   ;; optimization!
+	(set game_started true)
     (cinematic_set_title round_1)
     (deactivate_team_nav_point_object player control_round_1)
     (sound_impulse_start levels\test\nuts\sounds\round_countdown none 1.000000)
@@ -116,6 +121,7 @@
     (sound_impulse_start levels\test\nuts\sounds\begin_round_1 none 1.000000)
     (sleep 275)
     (ai_place round_1)
+    (unit_doesnt_drop_items (ai_actors round_1))
     (set in_combat 1)
     (sleep_until
         (< (ai_living_fraction round_1) 0.500000)
@@ -125,7 +131,7 @@
     (sleep_until
         (= (ai_living_count round_1) 0)
     )
-    (set in_combat 0)
+    (set in_combat 0) (game_save_no_timeout) ;; debug
     (sound_impulse_start levels\test\nuts\sounds\end_round_1 none 1.000000)
     (object_create control_round_2)
     (activate_team_nav_point_object default player control_round_2 0.500000)
@@ -138,6 +144,7 @@
     (sleep 120)
     (sleep 213)
     (ai_place round_2)
+    (unit_doesnt_drop_items (ai_actors round_2))
     (set in_combat 1)
     (sleep_until
         (< (ai_living_fraction round_2) 0.500000)
@@ -147,7 +154,7 @@
     (sleep_until
         (= (ai_living_count round_2) 0)
     )
-    (set in_combat 0)
+    (set in_combat 0) (game_save_no_timeout) ;; debug
     (sound_impulse_start levels\test\nuts\sounds\end_round_2 none 1.000000)
     (object_create control_round_3)
     (activate_team_nav_point_object default player control_round_3 0.500000)
@@ -159,6 +166,7 @@
     (sound_impulse_start levels\test\nuts\sounds\begin_round_3 none 1.000000)
     (sleep 156)
     (ai_place round_3)
+    (unit_doesnt_drop_items (ai_actors round_3))
     (set in_combat 1)
     (sleep_until
         (< (ai_living_fraction round_3) 0.500000)
@@ -166,9 +174,9 @@
     (sound_impulse_start levels\test\nuts\sounds\half_round_complete none 1.000000)
     (sleep 90)
     (sleep_until
-        (= (ai_living_count round_3) 0)
+        (<= (ai_living_count round_3) 2)
     )
-    (set in_combat 0)
+    (set in_combat 0) (game_save_no_timeout) ;; debug
     (sound_impulse_start levels\test\nuts\sounds\end_round_3 none 1.000000)
     (object_create control_round_4)
     (activate_team_nav_point_object default player control_round_4 0.500000)
@@ -180,6 +188,7 @@
     (sound_impulse_start levels\test\nuts\sounds\begin_round_4 none 1.000000)
     (sleep 60)
     (ai_place round_4)
+    (unit_doesnt_drop_items (ai_actors round_4))
     (set in_combat 1)
     (sleep 60)
     (sleep_until
@@ -188,9 +197,9 @@
     (sound_impulse_start levels\test\nuts\sounds\half_round_complete none 1.000000)
     (sleep 90)
     (sleep_until
-        (< (ai_living_count round_4) 10)
+        (< (ai_living_count round_4) 0)
     )
-    (set in_combat 0)
+    (set in_combat 0) (game_save_no_timeout) ;; debug
     (sound_impulse_start levels\test\nuts\sounds\end_round_4 none 1.000000)
     (object_create control_round_5)
     (activate_team_nav_point_object default player control_round_5 0.500000)
@@ -202,6 +211,7 @@
     (sound_impulse_start levels\test\nuts\sounds\begin_round_5 none 1.000000)
     (sleep 150)
     (ai_place round_5)
+    (unit_doesnt_drop_items (ai_actors round_5))
     (set in_combat 1)
     (sleep_until
         (< (ai_living_fraction round_5) 0.500000)
@@ -236,7 +246,7 @@
 	(unit_kill (player1)) ;; coop """bugfix"""
 
 	(sleep 150)
-	(game_revert) ;; unwinnable map, aren't i a stinker!
+	(game_lost) ;; unwinnable map, aren't i a stinker!
 )
 
 ;; this was broken in original. fixed
@@ -290,3 +300,17 @@
     (object_destroy searching)
 )
 
+;; co-op fix so you cant camp upper ledge
+(script continuous no_camp
+	(if game_started (begin
+	(if (volume_test_object upper (player0)) (begin
+		(object_teleport (player0) cheat_drop)
+	))
+
+	(if (volume_test_object upper (player1)) (begin
+		(object_teleport (player1) cheat_drop)
+	))
+	))
+	
+	(sleep 30)
+)
