@@ -1,5 +1,5 @@
-# "The Last Map Pack" (TLMP) Files
-This repository is the source files for TLMP uploaded to steam. [You can find the map pack here](null)
+# "Inferno's Ancient Map Pack" (H1) Files
+This repository is the source files for The Halo 1 part of Inferno's Ancient Map Pack uploaded to steam. [You can find the map pack here](https://steamcommunity.com/sharedfiles/filedetails/?id=3416044699)
 
 These tags work with the Halo 1 MCC Editing Kit ONLY. It is not meant for use with Halo Custom Edition or Halo 1 Xbox!
 
@@ -25,7 +25,9 @@ If you wish to contribute to this repository (ie pruning excess tags, organizing
 
 Credits
 ----------------------------------------------------------------------------------------------
-**InfernoPlus** - Original Maps </br>
+**InfernoPlus** - Original Maps, Scope Creep, Scripting, remaking Cairo, porting epsilon/air/shard, testing and balancing.</br>
 **MosesOfEgypt** - MEK was used for unobfuscating the original maps so they could be used with MCC, this effort could not be done without it.</br>
-**Kavawuvi** - Invader was used to help organize the tags and cull excess references</br>
-**R93_Sniper** - Porting maps to MCC and making the tags available
+**Kavawuvi** - Invader was used to help organize the tags and cull excess references.</br>
+**R93_Sniper** - Porting most TLMP maps, bug fixing, rubber ducking, animations for Cairo's nuke, ideas, organizing this repository.</br>
+**Rododo/Crow** - Optimized vanilla particles.</br>
+**Lavadeeto** - HUD elements for Cairo.
